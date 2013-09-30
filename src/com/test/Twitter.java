@@ -56,37 +56,11 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 
 
-
-/***
- *    ______ _____  ___ ______   _____ _   _ _____ _____ 
- *    | ___ \  ___|/ _ \|  _  \ |_   _| | | |_   _/  ___|
- *    | |_/ / |__ / /_\ \ | | |   | | | |_| | | | \ `--. 
- *    |    /|  __||  _  | | | |   | | |  _  | | |  `--. \
- *    | |\ \| |___| | | | |/ /    | | | | | |_| |_/\__/ /
- *    \_| \_\____/\_| |_/___/     \_/ \_| |_/\___/\____/ 
- *----------------------------------------------------------------------                                                       
- *   While you're struggling to get this working, I highly recommend three things:
- *   
- *   1. First, use HTTP, not HTTPS so you can see what you're doing, then switch back to HTTPS once it's working
- *   2. Use Fiddler or Wireshark to see your actual requests and the Twitter responses
- *   3. Use the example data from the following address. Get that working first as a baseline, then use your own credentials: 
- *   		https://dev.twitter.com/docs/auth/implementing-sign-twitter
- *
- *
-// REQUIRED LIBRARIES
-// Apache commons codec
-// Apache HTTP Core
-// JSON
- *
- */
-
-
-
 public class Twitter {
 	
 	
-	private String twitter_consumer_key = "glLpeZf4qofUTenMsQS6g";
-	private String twitter_consumer_secret = "bktnTg7GIXpgfsqjSC8kW93K8U32cFQrwEGMgQGc8";	
+	private String twitter_consumer_key = "getConsumerKey";
+	private String twitter_consumer_secret = "getSecretKey";	
 	
 	public String encode(String value) 
 	{
@@ -1225,8 +1199,8 @@ public class Twitter {
 
 		Twitter twitter = new Twitter();
 //		twitter.startTwitterAuthentication();
-//		twitter.updateStatus("1919160876-GU6TS7zzeEDlqnINoK7Vhig68ji9z6sXWqxdTcn", "4d5uFeLbzcr4TuRLWciDYEyDVXBJB9BPqlTGcH0mNSs", "Tweet using Twitter API HTTP");
-		JSONObject jsonreply = twitter.searchTweets("gvrl", "1919160876-GU6TS7zzeEDlqnINoK7Vhig68ji9z6sXWqxdTcn", "4d5uFeLbzcr4TuRLWciDYEyDVXBJB9BPqlTGcH0mNSs");
+//		twitter.updateStatus("access_token", "access_token_secret", "Tweet");
+		JSONObject jsonreply = twitter.searchTweets("searchTerm", "access_token", "access_token_secret");
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		JsonParser jsonParser = new JsonParser();
 		JsonElement jsonElement = jsonParser.parse(jsonreply.toString());
